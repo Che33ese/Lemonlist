@@ -12,6 +12,11 @@ export async function fetchList() {
         return await Promise.all(
             list.map(async (path, rank) => {
                 const levelResult = await fetch(`${dir}/${path}.json`);
+                if (!levelResult.ok) {
+                    console.warn(`Level data not found: ${path}.json`);
+                    return [null, path];
+                }
+
                 try {
                     const level = await levelResult.json();
                     return [
@@ -25,7 +30,7 @@ export async function fetchList() {
                         null,
                     ];
                 } catch {
-                    console.error(`Failed to load level #${rank + 1} ${path}.`);
+                    console.error(`Failed to parse level data for #${rank + 1} ${path}.`);
                     return [null, path];
                 }
             }),
