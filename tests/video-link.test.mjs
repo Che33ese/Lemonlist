@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import { getLevelVideoLink } from '../js/util.js';
+import { getLevelDataUrl } from '../js/content.js';
 
 test('prefers verification when present', () => {
   const level = {
@@ -27,4 +28,8 @@ test('returns showcase when explicitly requested', () => {
   };
 
   assert.equal(getLevelVideoLink(level, { preferShowcase: true }), 'https://www.youtube.com/watch?v=showcase');
+});
+
+test('encodes level paths with spaces for fetch requests', () => {
+  assert.equal(getLevelDataUrl('Blackfire Backfire'), 'data/Blackfire%20Backfire.json');
 });

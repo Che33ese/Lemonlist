@@ -5,13 +5,17 @@ import { round, score } from './score.js';
  */
 const dir = 'data';
 
+export function getLevelDataUrl(path) {
+    return `${dir}/${encodeURIComponent(path)}.json`;
+}
+
 export async function fetchList() {
     const listResult = await fetch(`${dir}/_list.json`);
     try {
         const list = await listResult.json();
         return await Promise.all(
             list.map(async (path, rank) => {
-                const levelResult = await fetch(`${dir}/${path}.json`);
+                const levelResult = await fetch(getLevelDataUrl(path));
                 if (!levelResult.ok) {
                     console.warn(`Level data not found: ${path}.json`);
                     return [null, path];
