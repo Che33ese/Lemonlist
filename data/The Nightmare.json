@@ -4,11 +4,14 @@
     "author": "Jax",
     "GD Verifier": "Jax",
     "Lemonlist verifier": "Che33ese",
-    "showcase": "https://www.youtube.com/watch?v=Xl4stg-bsxk",
+    "verification": "https://www.youtube.com/watch?v=Xl4stg-bsxk",
     "percentToQualify": 60,
     "password": "Not Copyable",
     "creators": [],
     "records": [
-
+                        {
+            "user": "Randum66",
+            "percent": 62
+        }
     ]
 }
