@@ -8,7 +8,10 @@
     "percentToQualify": 60,
     "password": "Not Copyable",
     "creators": [],
-    "records": [
+    "records": [                                {
+            "user": "Randum66",
+            "percent": 61
+        }
 
     ]
 }
